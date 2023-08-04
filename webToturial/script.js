@@ -30,12 +30,16 @@ btn.addEventListener("click",function(){
 })
 
 delbtn.addEventListener("click",function(){
-    // article.innerHTML ="";
-    targetDiv = "article"+count;
-    console.log(targetDiv);
-    reDiv = document.querySelector(`.${targetDiv}`);
-    reDiv.parentNode.removeChild(reDiv)
-    count--;
+    var chk= confirm("確定要刪除嗎");
+    if(chk==true && count==0){
+        alert("沒有文章可以刪除，請再次確認");
+    }else if(count=0) {
+        targetDiv = "article"+count;
+        console.log(targetDiv);
+        reDiv = document.querySelector(`.${targetDiv}`);
+        reDiv.parentNode.removeChild(reDiv)
+        count--;
+    }
 })
 
 ooxbtn.addEventListener("click",function(){
