@@ -1,29 +1,24 @@
 <template>
   <div class="container-sm">
-    <div>
-      <NaviBar></NaviBar>
-      <CarouselVue></CarouselVue>
-      <HomeAbout></HomeAbout>
-      <PromotionVue></PromotionVue>
-      <PromotionVue></PromotionVue>
-      <PromotionVue></PromotionVue>
-      <PromotionVue></PromotionVue>
-      <PromotionVue></PromotionVue>
-      <PromotionVue></PromotionVue>
-    </div>
+    <NaviBar></NaviBar>
+    <router-view></router-view>
   </div>
-  <FooterVue></FooterVue>
+  
 </template>
 
 <script>
-import NaviBar from "./components/NaviBar.vue";
-import CarouselVue from "./components/CarouselVue.vue"
-import HomeAbout from "./components/About/HomeAbout.vue"
-import FooterVue from "./components/FooterVue.vue"
-import PromotionVue from "./components/PromotionVue.vue";
+import NaviBar from './components/HomeComponents/About/NaviBar.vue'
 export default {
   name: "App",
-  components: { NaviBar,CarouselVue,HomeAbout,FooterVue,PromotionVue },
+  components: { NaviBar },
+  setup(){
+    
+
+
+    return{
+
+    }
+  }
 };
 </script>
 

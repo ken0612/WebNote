@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import HomeAboutComponent from './HomeAboutComponent.vue';
+import HomeAboutComponent from './HomeAboutComponent.vue'
 export default {
   name:'HomeAbout',
   components:{

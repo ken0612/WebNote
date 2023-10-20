@@ -1,21 +1,44 @@
 <template>
   <div class="naviConfig">
     <div class="navi">
-      <h2>我是導覽列</h2>
+      <router-link to="/home"><h2>回首頁</h2></router-link>
     </div>
     <div class="navi-inner">
       <a href="https://www.google.com"><p>首頁</p></a>
       <p>關於</p>
       <p>賣場</p>
       <p>購物車</p>
-      <p>登入</p>
+      <button class="navibutton" @click="navitologin">登入</button>
+      <button class="navibutton" @click="navitoregist">註冊</button>
     </div>
   </div>
   
 </template>
 
 <script>
-export default {};
+import {useRouter} from 'vue-router'
+export default {
+  name:'NaviBar',
+  setup(){
+    const router =useRouter();
+    function navitologin(){
+      console.log(router)
+      router.push('/login');
+    }
+    function navitoregist(){
+      router.push('/regist');
+    }
+    return{
+      router,
+      navitologin,
+      navitoregist
+
+    }
+  }
+
+
+
+};
 </script>
 
 <style>
@@ -46,5 +69,9 @@ export default {};
   display: flex;
   flex-direction: row;
 }
+.navibutton{
+  margin-left: 5px;
+}
+
 </style>
 
