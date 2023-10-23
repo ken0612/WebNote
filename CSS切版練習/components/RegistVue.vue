@@ -5,8 +5,9 @@
     </span>
     <form action="submit_registration.php" method="post">
       <label for="username">帳號：</label>
-      <input v-model="userName" type="text" id="username" name="username" required /><br /><br />
-
+      <input v-model="userName" @blur="valiaccount" type="text" id="username" name="username" required />
+      <br /><br />
+      <p  v-if="erraccount!=''">{{ erraccount }}</p>
       <label for="password">密碼：</label>
       <input
         v-model="password"
@@ -55,6 +56,9 @@ import { reactive, toRefs, } from 'vue';
 export default {
   name: "RegistVue",
   setup(){
+    const errmsg=reactive({
+        erraccount:'',
+    })
     const data= reactive({
         userName:'',
         password:'',
@@ -71,10 +75,22 @@ export default {
         console.log(data.userName)
         
     }
+    function valiaccount(){
+        if(data.userName.length>12){
+            errmsg.erraccount='帳號長度必須小於12位'
+            console.log(errmsg.erraccount)
+        }else{
+            errmsg.erraccount=''
+            
+        }
+    }
     
     return {
         ...toRefs(data),
-        submitRegist
+        ...toRefs(errmsg),
+        submitRegist,
+        valiaccount,
+        
     }
     
   },

@@ -28,11 +28,14 @@ export default {
 <style>
 .loginMain{
   background-color:gray;
-  margin-top:30px;
+  height:850px;
+  margin-top:5px;
   display:flex;
   justify-content: center;
 }
 .loginConfig {
+  background-color:orange;
+  margin-top:10px;
   display: flex;
   width: 350px;
   height: 150px;
