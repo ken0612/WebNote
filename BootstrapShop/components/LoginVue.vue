@@ -2,7 +2,7 @@
   <div class="container-sm" style="width:1100px ;height:700px;">
     <div class="row justify-content-center">
         <div class="col-12 col-md-12 m-5 " style="width:700px;">
-            <h3 class="mb-4">註冊會員</h3>
+            <h3 class="mb-4">會員登入</h3>
             <div class="mb-3 row ">
                 <label for="Account" class="col-sm-2 col-form-label">帳號</label>
                 <div class="col-sm-10 border-bottom">
@@ -15,23 +15,19 @@
                 <input type="password" class="form-control border-0" id="inputPassword">
                 </div>
             </div>
-            <div class="mb-3 row">
-                <label for="inputEmail " class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10 border-bottom">
-                <input type="email" class="form-control border-0" id="inputEmail">
+            <router-link to="/forgotpassword">
+                <div class="mb-3 row text-center">
+                    <a href="#">忘記密碼</a>
                 </div>
-            </div>
-            <div class="mb-3 row ">
-                <div class="form-check  text-center d-flex justify-content-center ">
-                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label  " for="flexCheckDefault">
-                        我已閱讀使用者條款
-                    </label>
-                </div>
-            </div>
+            </router-link>
 
             <div class="d-flex justify-content-center">
             <button class="btn btn-secondary">註冊</button>
+            </div>
+            <div class="text-center mt-3">
+                <router-link to="/regist">
+                    <a href="#">還不是會員？點此註冊</a>
+                </router-link>
             </div>
         </div>
     </div>
@@ -45,7 +41,7 @@ export default {
 </script>
 
 <style>
-.form-control:focus {
+    input.form-control:focus {
     outline: none;
     box-shadow: none;
   }

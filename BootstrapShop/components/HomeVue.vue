@@ -1,43 +1,18 @@
 <template>
-  <!-- 輪播欄 -->
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://picsum.photos/1300/500?random=10" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Some representative placeholder content for the first slide.</p>
+
+  <!-- 輪播欄，使用Suspense來製作讀取中畫面 -->
+  <Suspense>
+    <template v-slot:default>
+        <CarouselVue></CarouselVue>
+    </template>
+    <template v-slot:fallback>
+        <div class="d-flex justify-content-center align-items-center" style="width: 1300px; height: 600px;">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden mx-auto my-auto">Loading...</span>
+            </div>
         </div>
-      </div>
-      <div class="carousel-item">
-        <img src="https://picsum.photos/1300/500?random=11" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="https://picsum.photos/1300/500?random=12" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+    </template>
+  </Suspense>
   
   <!-- 簡易網頁介紹 -->
   <div class="container-fluid mt-3">
@@ -139,8 +114,12 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from 'vue';
+// import CarouselVue from './CarouselVue.vue';
+const CarouselVue =defineAsyncComponent(()=>import('./CarouselVue.vue'))
 export default {
-
+ name:"HomeVue",
+ components:{CarouselVue}
 }
 </script>
 
