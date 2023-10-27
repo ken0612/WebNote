@@ -22,7 +22,7 @@
             </router-link>
 
             <div class="d-flex justify-content-center">
-            <button class="btn btn-secondary">註冊</button>
+            <button @click="goToLogin"  class="btn btn-secondary">登入</button>
             </div>
             <div class="text-center mt-3">
                 <router-link to="/regist">
@@ -36,7 +36,20 @@
 
 <script>
 export default {
-
+ name:'LoginVue',
+ setup(){
+    return{
+        
+    }
+ },
+ methods:{
+    goToLogin(){
+        window.localStorage.setItem('isLogin',true)
+        this.$router.push('/').then(()=>{
+            window.location.reload();
+        })
+    }
+ }
 }
 </script>
 

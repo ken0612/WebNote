@@ -5,7 +5,7 @@ import LoginVue from '../components/LoginVue'
 import ForgotPassword from '../components/ForgotPassword'
 import CartVue from '../components/CartVue'
 import ProductsVue from '../components/Products/ProductsVue'
-import ProductsSpring from '../components/Products/Category/ProductsSpring'
+import ProductsShow from '../components/Products/Category/ProductsShow'
 const  routes=[
         {
             path:'/',
@@ -32,10 +32,24 @@ const  routes=[
             component:ProductsVue,
             children:[
                 {
-                    path:'spring',
-                    component:ProductsSpring
+                    path:'category/:cid',
+                    component:ProductsShow
                 }
 
+            ]
+        },
+        {
+            path:'/memberpage',
+            component:()=> import('../components/MemberPage/MemberPage.vue'),
+            children:[
+                {
+                    path:'info',
+                    component:()=>import('../components/MemberPage/MemberHome.vue')
+                },
+                {
+                    path:'orders',
+                    component:()=>import('../components/MemberPage/HistoryOrders.vue')
+                }
             ]
         }
     ]

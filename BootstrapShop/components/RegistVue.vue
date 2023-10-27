@@ -52,7 +52,7 @@
                     請勾選使用者協議！
                 </div>
                 <div class="modal-footer border-0 justify-content-center ">
-                    <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">確定</button>
+                    <button @click="tryRegist" type="button" class="btn btn-secondary " data-bs-dismiss="modal">確定</button>
                 </div>
             </div>
         </div>
@@ -75,7 +75,7 @@ export default {
         emailValidate:false,
         userTerms:false
     })
-    
+    //驗證帳號規則
     function accVali(){
         if(validation.account===''){
             validation.accountVali=false
@@ -85,7 +85,7 @@ export default {
             validation.accountVali=false
         }
     }
-
+    //驗證密碼規則
     function passVali(){
         if(validation.password ===''){
             validation.passwordVali=false
@@ -95,7 +95,7 @@ export default {
             validation.passwordVali=false
         }
     }
-
+    //驗證Email規則
     function emailVali(){
         if(validation.email === ''){
             validation.emailValidate=false
@@ -105,20 +105,27 @@ export default {
             validation.emailValidate=false
         }
     }
-
+    //驗證使否勾選使用者條款
     function checkUserTerms(){
         const modal= new bootstrap.Modal(document.getElementById('userTermsAlert'))
         if(validation.userTerms===false){
             modal.show()
         }
     }
+    
+    //這是假的註冊功能！等待後端上限後將串接後端驗證
+    function tryRegist(){
+        
+    }
+    
 
     return{
         ...toRefs(validation),
         accVali,
         passVali,
         emailVali,
-        checkUserTerms
+        checkUserTerms,
+        tryRegist
     }
     
  }
