@@ -12,7 +12,7 @@ const  routes=[
             component:HomeVue
         },
         {
-            path:'/regist',
+            path:'/registpage',
             component:RegistVue
         },
         {

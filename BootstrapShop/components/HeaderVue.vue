@@ -32,7 +32,7 @@
                     </router-link>
                   </li>
                   <li class="nav-item ">
-                          <router-link to="/regist">
+                          <router-link to="/registpage">
                             <p class="nav-link text-dark headerlink fs-5 mr-1 " >註冊</p>
                           </router-link>        
                   </li>
@@ -49,14 +49,16 @@
                     </p>
                   </li>
                   <li class="nav-item ">
-                          <router-link to="/memberpage">
+                          <router-link to="/memberpage/info">
                             <p class="nav-link text-dark headerlink fs-5 mr-1 " >會員中心</p>
                           </router-link>        
                   </li>
 
                   <li class="nav-item ">
-                          <router-link to="/regist">
-                            <p class="nav-link text-dark headerlink fs-5 mr-1 " @click="logout" >登出</p>
+                          <router-link to="/">
+                            <div data-bs-toggle="modal" data-bs-target="#logoutConfirm">
+                              <p class="nav-link text-dark headerlink fs-5 mr-1 " >登出</p>
+                            </div>
                           </router-link>        
                   </li>
                 </template>
@@ -69,7 +71,7 @@
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart mb-1" viewBox="0 0 16 16">
                         <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                       </svg>
-                      購物車
+                      購物車(0)
                     </p>
                   </div>
                 </li>
@@ -88,12 +90,12 @@
     <div class="row" >
       <ul class="nav justify-content-center bg-secondary bg-gradient " style="height:50px;">
         <li class="nav-item mx-5 fs-5 ">
-          <router-link to="/products">
+          <router-link to="/products/category/全部商品">
             <p class="nav-link text-light" >永生花系列</p>
           </router-link>
         </li>
         <li class="nav-item mx-5 fs-5 ">
-          <p class="nav-link text-light" >阿咪好物團購</p>
+          <p class="nav-link text-light " >阿咪好物團購</p>
         </li>
         <li class="nav-item mx-5 fs-5">
           <p class="nav-link text-light " aria-current="page" >阿咪的部落格</p>
@@ -108,6 +110,28 @@
 
   <!-- 購物車（隱式) -->
   <CartVue></CartVue>
+
+  <!-- 登出確認按鈕 -->
+  <div class="modal fade" id="logoutConfirm" tabindex="-1" aria-aledby="logoutConfirm" aria-hidden="true">
+        <div class="modal-dialog modal-dialog modal-dialog-centered ">
+            <div class="modal-content ">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="logoutConfirm">警告</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-a="Close"></button>
+                </div>
+                <div class="modal-body border-0">
+                    確定要登出嗎？
+                </div>
+                <div class="modal-footer border-0 justify-content-center ">
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">再逛一下</button>
+                    <button type="button" class="btn btn-primary" @click="logout">確定</button>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </template>
 
